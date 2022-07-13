@@ -6,7 +6,7 @@ pipeline {
                 sh 'node --version'
             }
             steps {
-                sh 'echo helloworld'
+                echo 'Testing....'
             }
         }
     }
