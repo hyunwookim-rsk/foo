@@ -5,6 +5,9 @@ pipeline {
             steps {
                 sh 'node --version'
             }
+            steps {
+                sh 'echo helloworld'
+            }
         }
     }
 }
