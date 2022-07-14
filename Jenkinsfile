@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker { 
             image 'node:7-alpine' 
-            label 'support_ubuntu_docker'
+            args '-it --entrypoint=/bin/bash'
              }
     }
     stages {
