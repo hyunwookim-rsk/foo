@@ -1,15 +1,5 @@
-pipeline {
-  agent {
-    docker {
-        image 'hashicorp/terraform:light'
-        args '--entrypoint='
-    }
-  }
-  stages {
-    stage('execute') { 
-        steps {
-            sh 'terraform --version' 
-        }
-    }
-  }
+
+docker.image('node:14.20.0').inside("""--entrypoint=''""") {
+    // some steps here
+  sh 'node --version'
 }
