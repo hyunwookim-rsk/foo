@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker { 
             image 'node:7-alpine' 
-            args '-it --entrypoint=/bin/sh'
+            args '-it'
              }
     }
     stages {
