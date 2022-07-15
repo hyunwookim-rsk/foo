@@ -4,6 +4,9 @@ pipeline {
     stage("Build") {
         steps {
             script {
+                sh """
+                git clone https://github.com/hyunwookim-rsk/foo.git .
+                """
                 myImage = docker.build("apidoc-image", "-f ./Dockerfile --no-cache .") // build the Dockerfile
               }
         }
