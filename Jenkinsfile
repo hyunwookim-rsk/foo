@@ -4,7 +4,7 @@ pipeline {
     stage("Build") {
         steps {
             script {
-                myImage = docker.build("apidoc-image", "-f ./Dockerfile") // build the Dockerfile
+                myImage = docker.build("apidoc-image", "-f ./Dockerfile .") // build the Dockerfile
               }
         }
     }
