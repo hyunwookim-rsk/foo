@@ -6,4 +6,4 @@ RUN npm install -g ember-cli
 RUN mkdir /app
 WORKDIR /app
 
-COPY ./index.js ./package-lock.json ./package.json ./
+COPY ./index.js ./package-lock.json ./package.json ./apidoc.json ./
