@@ -1,14 +1,23 @@
 version: '3'
+
+networks:
+  simple_network:
+    driver: bridge
+
 services:
   node_app:
     image: node_app_image
     build: ./src
     restart: always
+    networks:
+      - simple_network
   nginx:
     build: ./nginx
     image: nginx_image
     restart: always
     container_name: api_nginx
+    networks:
+      - simple_network
     ports:
       - 80:80
     volumes:
@@ -21,6 +30,8 @@ services:
     image: jenkins-docker
     build: ./jenkins
     privileged: true
+    networks:
+      - simple_network
     user: root
     ports:
       - 8080:8080
