@@ -13,10 +13,10 @@ pipeline {
     stage("Run Docker Container") {
         steps {
             sh """
-                mkdir -p ./apiDoc
+                mkdir -p ${pwd}apiDoc
             """
             script {
-                myImage.withRun("--name my-container -it --entrypoint=/bin/bash -v ${pwd}/apiDoc:/app/apiDoc") {
+                myImage.withRun("--name my-container -it --entrypoint=/bin/bash -v ${pwd}apiDoc:/app/apiDoc") {
                     sh """
                         docker exec my-container node -v
                     """
@@ -24,7 +24,7 @@ pipeline {
                         docker exec my-container npx apidoc -c ./apidoc.json -i ./ -o /app/apiDoc/
                     """
                     sh """
-                        ls -al ./apiDoc
+                        ls -al ${pwd}apiDoc
                     """
                 }
             }
