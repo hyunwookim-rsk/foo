@@ -4,7 +4,7 @@ const port = 3000
 
 
 /**
- * @api {get} / Hello World
+ * @api {get}  Hello World
  * @apiName Hello world app
  * @apiGroup User
  *
