@@ -21,7 +21,7 @@ pipeline {
                         docker exec my-container node -v
                     """
                     sh """
-                        docker exec my-container npx apidoc -c ./apidoc.json -i ./ -o /app/apiDoc/
+                        docker exec my-container npx apidoc -c /app/apidoc.json -i /app -o /app/apiDoc/
                     """
                     sh """
                         ls -al ${pwd}apiDoc
