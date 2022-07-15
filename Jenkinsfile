@@ -12,8 +12,11 @@ pipeline {
     // you can execute your Docker container and run some specific command you desire
     stage("Run Docker Container") {
         steps {
+            sh """
+                mkdir ./apiDoc
+            """
             script {
-                myImage.withRun("--name my-container -it --entrypoint=/bin/bash -v /apiDoc:/app/apiDoc") {
+                myImage.withRun("--name my-container -it --entrypoint=/bin/bash -v ./apiDoc:/app/apiDoc") {
                     sh """
                         docker exec my-container node -v
                     """
@@ -21,7 +24,7 @@ pipeline {
                         docker exec my-container npx apidoc -c ./apidoc.json -i ./ -o /app/apiDoc/
                     """
                     sh """
-                        ls -al /apiDoc
+                        ls -al ./apiDoc
                     """
                 }
             }
