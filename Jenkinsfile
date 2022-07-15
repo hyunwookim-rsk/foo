@@ -15,7 +15,7 @@ pipeline {
             script {
                 myImage.withRun("--name my-container -it --entrypoint=/bin/bash") {
                     sh """
-                        docker exec my-container node -version
+                        docker exec my-container node -v
                     """
                 }
             }
