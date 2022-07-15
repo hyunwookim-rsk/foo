@@ -4,7 +4,7 @@ pipeline {
         steps {
             script {
                 myImage = docker.build("test/node:latest") // build the Dockerfile
-            }
+              }
         }
     }
 
@@ -20,4 +20,5 @@ pipeline {
             }
         }
     }
+  }
 }
