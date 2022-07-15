@@ -16,7 +16,7 @@ pipeline {
                 mkdir ./apiDoc
             """
             script {
-                myImage.withRun("--name my-container -it --entrypoint=/bin/bash -v ./apiDoc:/app/apiDoc") {
+                myImage.withRun("--name my-container -it --entrypoint=/bin/bash -v ${pwd}/apiDoc:/app/apiDoc") {
                     sh """
                         docker exec my-container node -v
                     """
