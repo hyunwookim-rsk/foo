@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
  * @apiName App status
  * @apiGroup Backend
  *
- * @apiSuccess {String} Return ok message.
+ * @apiSuccess {String} Return ok message. yeah!
  */
  app.get('/status', (req, res) => {
   res.send('ok!')
