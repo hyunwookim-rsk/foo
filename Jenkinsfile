@@ -23,11 +23,12 @@ pipeline {
                     sh """
                         docker exec my-container npx apidoc -c /app/apidoc.json -i /app -o /app/apiDoc/
                     """
-                    sh """
-                        ls -al ${pwd}apiDoc
-                    """
                 }
             }
+            // host's volume ${pwd}apiDoc
+            sh """
+                ls -al ${pwd}apiDoc
+            """
         }
     }
   }
