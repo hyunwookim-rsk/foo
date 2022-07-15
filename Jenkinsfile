@@ -15,7 +15,7 @@ pipeline {
             script {
                 myImage.withRun("--name my-container") {
                     sh """
-                        docker exec -it my-container node -version
+                        docker exec my-container node -version
                     """
                 }
             }
