@@ -13,7 +13,7 @@ pipeline {
     stage("Run Docker Container") {
         steps {
             sh """
-                mkdir ./apiDoc
+                mkdir -p ./apiDoc
             """
             script {
                 myImage.withRun("--name my-container -it --entrypoint=/bin/bash -v ${pwd}/apiDoc:/app/apiDoc") {
