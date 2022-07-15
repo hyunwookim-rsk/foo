@@ -13,7 +13,7 @@ pipeline {
     stage("Run Docker Container") {
         steps {
             script {
-                myImage.withRun("--name my-container") {
+                myImage.withRun("--name my-container -it --entrypoint=/bin/bash") {
                     sh """
                         docker exec my-container node -version
                     """
