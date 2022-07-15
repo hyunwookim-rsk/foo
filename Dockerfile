@@ -7,4 +7,5 @@ RUN mkdir /app
 RUN mkdir /app/apiDoc
 WORKDIR /app
 
-COPY ./index.js ./package-lock.json ./package.json ./apidoc.json ./
+# COPY ./index.js ./package-lock.json ./package.json ./apidoc.json ./
+COPY ./src /app

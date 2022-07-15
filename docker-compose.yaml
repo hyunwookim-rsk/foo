@@ -1,0 +1,32 @@
+version: '3'
+services:
+  node_app:
+    image: node_app_image
+    build: ./src
+    restart: always
+  nginx:
+    build: ./nginx
+    image: nginx_image
+    restart: always
+    container_name: api_nginx
+    ports:
+      - 80:80
+    volumes:
+      - /apiDoc:/usr/share/nginx/html
+    depends_on:
+      - node_app
+      - jenkins
+  jenkins:
+    restart: always
+    image: jenkins-docker
+    build: ./jenkins
+    privileged: true
+    user: root
+    ports:
+      - 8080:8080
+      - 50000:50000
+    container_name: jenkins_container
+    volumes:
+      - ./jenkins_configuration:/var/jenkins_home
+      - /apiDoc:/apiDoc
+      - /var/run/docker.sock:/var/run/docker.sock
