@@ -11,9 +11,11 @@ services:
     restart: always
     networks:
       - simple_network
-    environment:
-      - MYSQL_DATABASE=test_db
-      - MYSQL_ROOT_PASSWORD=3gjF66W3cRI
+    env_file:
+      - .env
+    # environment:
+    #   - MYSQL_DATABASE=test_db
+    #   - MYSQL_ROOT_PASSWORD=3gjF66W3cRI
     ports:
       - '3306:3306'
     volumes:
@@ -25,10 +27,10 @@ services:
       - simple_network
     depends_on:
       - db
-    environment:
-      PMA_HOST: db
-      MYSQL_ROOT_PASSWORD: 3gjF66W3cRI
-      PMA_ABSOLUTE_URI: http://jenkins.gapmoe.net/pma/
+    # environment:
+    #   PMA_HOST: db
+    #   MYSQL_ROOT_PASSWORD: 3gjF66W3cRI
+    #   PMA_ABSOLUTE_URI: http://jenkins.gapmoe.net/pma/
     restart: always
   node_app:
     image: node_app_image
