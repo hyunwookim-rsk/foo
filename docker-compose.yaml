@@ -49,6 +49,7 @@ services:
     depends_on:
       - node_app
       - jenkins
+      - phpmyadmin
   jenkins:
     restart: always
     image: jenkins-docker
