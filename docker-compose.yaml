@@ -28,7 +28,7 @@ services:
     environment:
       PMA_HOST: db
       MYSQL_ROOT_PASSWORD: 3gjF66W3cRI
-      PMA_ABSOLUTE_URI: https://jenkins.gapmoe.net/pma/
+      PMA_ABSOLUTE_URI: http://jenkins.gapmoe.net/pma/
     restart: always
   node_app:
     image: node_app_image
