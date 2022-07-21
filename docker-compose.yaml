@@ -9,6 +9,8 @@ services:
     image: mysql:8.0.29
     container_name: mysql_container
     restart: always
+    networks:
+      - simple_network
     environment:
       - MYSQL_DATABASE=test_db
       - MYSQL_ROOT_PASSWORD=3gjF66W3cRI
@@ -19,6 +21,8 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:5.2.0
     container_name: phpmyadmin_container
+    networks:
+      - simple_network
     depends_on:
       - db
     environment:
